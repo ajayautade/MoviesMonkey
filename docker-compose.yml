@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  # Production-like app service (uses pre-built Docker image)
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: moviemonkey-app
+    ports:
+      - "80:80"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:80/" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    networks:
+      - moviemonkey-network
+
+  # Development mode with hot reload
+  dev:
+    image: node:18-alpine
+    container_name: moviemonkey-dev
+    working_dir: /app
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - REACT_APP_TMDB_API_KEY=${REACT_APP_TMDB_API_KEY}
+      - REACT_APP_OMDB_API_KEY=${REACT_APP_OMDB_API_KEY}
+      - CHOKIDAR_USEPOLLING=true
+    command: sh -c "npm install && npm start"
+    networks:
+      - moviemonkey-network
+    profiles:
+      - dev
+
+volumes:
+  node_modules:
+
+
+networks:
+  moviemonkey-network:
+    driver: bridge
