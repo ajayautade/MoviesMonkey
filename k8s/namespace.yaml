@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: moviemonkey
+  labels:
+    app: moviemonkey
+    environment: production
