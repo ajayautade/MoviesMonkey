@@ -1,0 +1,30 @@
+# Monitoring Stack — Prometheus + Grafana
+
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+rule_files:
+  - "alert_rules.yml"
+
+scrape_configs:
+  # Prometheus self-monitoring
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["localhost:9090"]
+
+  # MovieMonkey nginx metrics
+  - job_name: "moviemonkey-nginx"
+    static_configs:
+      - targets: ["nginx-exporter:9113"]
+    metrics_path: /metrics
+
+  # Node Exporter (system metrics)
+  - job_name: "node-exporter"
+    static_configs:
+      - targets: ["node-exporter:9100"]
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets: ["alertmanager:9093"]
