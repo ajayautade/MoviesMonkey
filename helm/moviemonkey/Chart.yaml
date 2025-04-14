@@ -1,0 +1,14 @@
+apiVersion: v2
+name: moviemonkey
+description: A Helm chart for MovieMonkey - React movie discovery application
+type: application
+version: 1.0.0
+appVersion: "3.0.0"
+maintainers:
+  - name: Ajay Autade
+    url: https://github.com/ajayautade
+keywords:
+  - react
+  - movies
+  - tmdb
+  - nginx
