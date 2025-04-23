@@ -1,0 +1,69 @@
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import WatchlistToggle from './WatchlistToggle';
+import API_CONFIG from '../utils/apiConfig';
+class Trending extends Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            Movies: [],
+            baseUrl: `${API_CONFIG.TMDB_BASE_URL}/trending/movie/week?api_key=${API_CONFIG.TMDB_API_KEY}`
+        };
+    }
+    componentDidMount() {
+        axios
+            .get(this.state.baseUrl)
+            .then((res) => {
+                const movies = res.data;
+                this.setState({
+                    Movies: (movies.results || []).slice(0, 4),
+                });
+            })
+            .catch((error) => {
+                console.log(error);
+                this.setState({
+                    Movies: [],
+                });
+            });
+    }
+    render() {
+        const { Movies } = this.state;
+        return (
+            <>
+                <section className="latest-movies">
+                    <div className="content">
+                        <div className="latest-movies-title">
+                            <h2 className="heading">Trending</h2>
+                        </div>
+                        <div className="all-movies">
+                            {
+                                Movies.map(item => {
+                                    if (item.poster_path != null) {
+                                        return (
+                                            <div className="movie" key={item.id}>
+                                                <div className="movie-poster">
+                                                    <img src={"https://image.tmdb.org/t/p/w200/" + item.poster_path} alt={item.title} />
+                                                </div>
+                                                <div className="movie-text">
+                                                    <Link to={`/movie/${item.id}`}>{item.title}</Link>
+                                                    <WatchlistToggle movie={{ id: item.id, title: item.title, poster_path: item.poster_path }} />
+                                                </div>
+                                            </div>
+                                        )
+                                    }
+                                    else {
+                                        return null
+                                    }
+                                })
+                            }
+                        </div>
+                    </div>
+                </section>
+            </>
+        )
+    }
+}
+
+export default Trending
