@@ -1,0 +1,77 @@
+/*============================================================== Landing Page=================*/
+.title-section{
+    margin: 0 0 0px 0;
+}
+/*********************** MAIN TITLE *************************/
+.main-title{
+    background: url('../Images/hero-bg.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    max-width: 100%;
+    height: min(82vh, 760px);
+    background-size: cover;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.main-title-content{
+    text-align: center;
+}
+.main-title-text{
+    width: min(720px, 92%);
+    margin: 0 auto;
+    padding: 32px 0;
+}
+.main-title-text h3{
+    margin: 18px 0 26px 0;
+    font-weight: 450;
+}
+/*  GET STARTED 
+*************************************/
+.get-started{
+    padding: 72px 0;
+    background-color: transparent;
+}
+.get-started-content{
+    min-height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    text-align: center;
+    background: rgba(16,16,24,0.55);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 16px;
+    box-shadow: 0 14px 40px rgba(0,0,0,0.35);
+    padding: 22px;
+    gap: 16px;
+}
+.get-started-content h3{
+    margin-right: 30px;
+}
+ /**********************************************************************************
+ *********************** MEDIA  QUERIES *******************************************/
+  
+ @media (max-width: 1230px) {
+    
+}
+@media (max-width: 1100px) {
+    
+}
+@media (max-width: 900px) {
+}
+@media (max-width: 868px) {
+    .main-title-text{
+        width: 100%;
+    }
+    .get-started-content{
+        flex-direction: column;
+    }
+    .get-started-content h3{
+        margin: 0 0 20px 0;
+    }
+}
+@media (max-width: 380px) {
+}
