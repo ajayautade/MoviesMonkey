@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07070a"/>
+      <stop offset="0.45" stop-color="#0b0b12"/>
+      <stop offset="1" stop-color="#12040a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="35%" cy="20%" r="55%">
+      <stop offset="0" stop-color="#7c3aed" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#7c3aed" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="75%" cy="70%" r="55%">
+      <stop offset="0" stop-color="#06b6d4" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="#06b6d4" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#16161f"/>
+      <stop offset="1" stop-color="#0f0f16"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <rect width="1920" height="1080" fill="url(#glow)"/>
+  <rect width="1920" height="1080" fill="url(#glow2)"/>
+
+  <!-- subtle grid -->
+  <g opacity="0.08" stroke="#ffffff">
+    <path d="M0 160h1920M0 320h1920M0 480h1920M0 640h1920M0 800h1920M0 960h1920"/>
+    <path d="M160 0v1080M320 0v1080M480 0v1080M640 0v1080M800 0v1080M960 0v1080M1120 0v1080M1280 0v1080M1440 0v1080M1600 0v1080M1760 0v1080"/>
+  </g>
+
+  <!-- movie cards -->
+  <g transform="translate(250 210)" opacity="0.55">
+    <rect x="0" y="0" width="320" height="460" rx="18" fill="url(#card)" stroke="rgba(255,255,255,0.12)"/>
+    <rect x="26" y="34" width="268" height="260" rx="14" fill="rgba(124,58,237,0.14)"/>
+    <rect x="26" y="318" width="220" height="16" rx="8" fill="rgba(255,255,255,0.22)"/>
+    <rect x="26" y="350" width="180" height="12" rx="6" fill="rgba(255,255,255,0.16)"/>
+    <rect x="26" y="380" width="130" height="12" rx="6" fill="rgba(255,255,255,0.14)"/>
+  </g>
+
+  <g transform="translate(650 280)" opacity="0.6">
+    <rect x="0" y="0" width="360" height="520" rx="18" fill="url(#card)" stroke="rgba(255,255,255,0.14)"/>
+    <circle cx="180" cy="210" r="86" fill="rgba(6,182,212,0.14)"/>
+    <path d="M160 170l90 50-90 50v-100z" fill="#fff" opacity="0.92"/>
+    <rect x="30" y="350" width="250" height="16" rx="8" fill="rgba(255,255,255,0.22)"/>
+    <rect x="30" y="382" width="190" height="12" rx="6" fill="rgba(255,255,255,0.16)"/>
+    <rect x="30" y="410" width="140" height="12" rx="6" fill="rgba(255,255,255,0.14)"/>
+  </g>
+
+  <g transform="translate(1080 230)" opacity="0.5">
+    <rect x="0" y="0" width="330" height="480" rx="18" fill="url(#card)" stroke="rgba(255,255,255,0.12)"/>
+    <rect x="26" y="34" width="278" height="280" rx="14" fill="rgba(255,255,255,0.06)"/>
+    <rect x="26" y="330" width="210" height="16" rx="8" fill="rgba(255,255,255,0.22)"/>
+    <rect x="26" y="362" width="170" height="12" rx="6" fill="rgba(255,255,255,0.16)"/>
+    <rect x="26" y="392" width="120" height="12" rx="6" fill="rgba(255,255,255,0.14)"/>
+  </g>
+
+  <!-- vignette -->
+  <rect width="1920" height="1080" fill="#000" opacity="0.22"/>
+</svg>
