@@ -1,6 +1,6 @@
 # MoviesMonkey
 
-Live Preview : [MoviesMonkey].
+Live Preview : [[MoviesMonkey]](https://mymoviesmonkey.netlify.app).
 
 ## Description
 
