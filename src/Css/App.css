@@ -1,103 +1,166 @@
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --bg: #0b0b0f;
+    --surface: #101018;
+    --surface-2: #141421;
+    --text: rgba(255,255,255,0.92);
+    --muted: rgba(255,255,255,0.68);
+    --border: rgba(255,255,255,0.12);
+    --shadow: 0 12px 40px rgba(0,0,0,0.45);
+
+    /* Modern minimal accent palette */
+    --accent: #7c3aed;   /* violet */
+    --accent2: #06b6d4;  /* cyan */
+
+    --radius: 14px;
+}
+
+body.light-theme {
+    --bg: #ffffff;
+    --surface: #f3f4f6;
+    --surface-2: #e5e7eb;
+    --text: #111827;
+    --muted: #4b5563;
+    --border: #e5e7eb;
+    --shadow: 0 12px 40px rgba(0,0,0,0.08);
+}
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: white;
     font-family: 'Red Hat Display',sans-serif;
 }
+
 html {
   scroll-behavior: smooth;
 }
+
 body{
-    background-color: #1b1b1f;
+    background-color: var(--bg);
+    color: var(--text);
 }
+
+h1,h2,h3,h4,h5,h6,p,span,li,label{
+    color: var(--text);
+}
+
 h1,h2{
-    color: white;
-    font-weight: 900;
-    letter-spacing: 1px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
 }
+
 h1{
-    font-size: 50px;
+    font-size: clamp(34px, 4.2vw, 52px);
+    line-height: 1.05;
 }
+
 h2{
-    font-size: 44px;
+    font-size: clamp(26px, 3.4vw, 40px);
+    line-height: 1.12;
 }
+
 h3{
-    font-size: 26px;
+    font-size: clamp(18px, 2.0vw, 24px);
+    font-weight: 500;
+    color: var(--muted);
 }
+
 a{
-    color: white;
+    color: var(--text);
 }
+
 .content{
-    max-width: 1250px;
+    max-width: 1120px;
     margin: auto;
-    padding: 0 30px;
+    padding: 0 24px;
 }
+
 .behind-nav{
     width: 100%;
-    height: 15vh;
+    height: 84px;
 }
+
+/* Primary button */
 .red-btn{
-    background-color: #e50914;
-    padding: 20px 30px;
-    font-size: 25px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+    padding: 12px 18px;
+    font-size: 16px;
     text-decoration: none;
-    font-weight: 500;
-    border-radius: 5px;
-    border: none;
-    transition: all 0.3s ease-out;
+    font-weight: 600;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
+
 .red-btn:hover{
-    background-color: #1b1b1f;
-    border: 1px solid white;
+    transform: translateY(-1px);
+    box-shadow: 0 14px 30px rgba(124,58,237,0.20);
+    filter: brightness(1.04);
 }
+
+/* Make old utility classes minimal (no rainbow animations) */
 .heading{
-    animation: Heading 5s ease-in-out 0s infinite normal;
+    animation: none;
 }
+
 .border{
-    animation: Border 5s ease-in-out 0s infinite normal;
+    animation: none;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: rgba(16,16,24,0.7);
+    backdrop-filter: blur(8px);
 }
+
 .inner-shadow{
-    box-shadow: 0px 0px 118px 32px rgba(224,17,17,0.75) inset;
-    -webkit-box-shadow: 0px 0px 118px 32px rgba(224,17,17,0.75) inset;
-    -moz-box-shadow: 0px 0px 118px 32px rgba(224,17,17,0.75) inset;
+    box-shadow: none;
 }
+
 /* ********** SECTION WITH IMAGE ********************************/
 .section-with-image{
-    background-color: black;
-    border-top: 4px solid grey;
-    border-bottom: 4px solid grey;
+    background-color: transparent;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
 }
-.img-section{
-    position: relative;
-}
-.outer-image {
-    position: relative;
-    z-index: 1;
-}
-.inner-image{
-    position: absolute;
-    top: 100px;
-    width: 73%;
-    left: 83px;
-}
+
 .section-with-image-content{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 40px 0;
+    padding: 56px 0;
+    gap: 28px;
 }
+
 .text-section{
     width: 50%;
-    margin: 0 40px 0 0;
+    margin: 0;
 }
+
 .text-section h2{
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 14px;
 }
+
 .text-section h3{
-    font-weight: 400;
+    font-weight: 450;
+}
+
+.img-section{
+    width: 50%;
+}
+
+.outer-image{
+    width: 100%;
+    height: auto;
+}
+
+/* legacy inner-image positioning not used for new SVGs */
+.inner-image{
+    display: none;
 }
  /**********************************************************************************
  *********************** MEDIA  QUERIES *******************************************/
@@ -126,39 +189,4 @@ a{
     }   
 }
 @media (max-width: 380px) {
-}
-
-@keyframes Heading {
-    0% {
-        color:turquoise;
-    }
-    25%{
-        color: blue;
-    }
-    50%{
-        color: yellow;
-    }
-    75%{
-        color: white;
-    }
-    100%{
-        color: #8E05C2;
-    }
-}
-@keyframes Border {
-    0% {
-        border: 2px solid turquoise;
-    }
-    25%{
-        border: 2px solid blue;
-    }
-    50%{
-        border: 2px solid yellow;
-    }
-    75%{
-        border: 2px solid white;
-    }
-    100%{
-        border: 2px solid #8E05C2;
-    }
 }

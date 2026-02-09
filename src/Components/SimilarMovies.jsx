@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import "../Css/App.css";
 import { Link } from 'react-router-dom'
 import Spinner from "./Spinner";
+import WatchlistToggle from './WatchlistToggle';
 
 class SimilarMovies extends Component {
     constructor(props) {
@@ -11,25 +12,44 @@ class SimilarMovies extends Component {
         this.state = {
              similarMovies: [],
              loading: false,
-             baseUrl: `https://api.themoviedb.org/3/movie/385687/similar?api_key=${process.env.REACT_APP_MOVIE_DB}&language=en-US&page=1`
         }
     }
-    componentDidMount(){
-        this.setState({
-            loading: true
-        })
-        axios.get(this.state.baseUrl)
+
+    fetchSimilar(movieId){
+        if(!movieId){
+            this.setState({ similarMovies: [], loading: false });
+            return;
+        }
+
+        const baseUrl = `https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=${process.env.REACT_APP_MOVIE_DB}&language=en-US&page=1`;
+
+        this.setState({ loading: true });
+        axios.get(baseUrl)
         .then(res =>{
             const result = res.data;
 
             this.setState({
-                similarMovies: result.results.slice(0,4),
+                similarMovies: (result.results || []).slice(0,4),
                 loading: false
             })
         })
-        .catch(error=>{
-            console.log(error)
-        })
+        .catch((error) => {
+            console.log(error);
+            this.setState({
+                similarMovies: [],
+                loading: false,
+            });
+        });
+    }
+
+    componentDidMount(){
+        this.fetchSimilar(this.props.movieId);
+    }
+
+    componentDidUpdate(prevProps){
+        if(prevProps.movieId !== this.props.movieId){
+            this.fetchSimilar(this.props.movieId);
+        }
     }
   render() {
       const{similarMovies, loading } = this.state;
@@ -46,7 +66,7 @@ class SimilarMovies extends Component {
             !loading && similarMovies.map((item) => {
                 if (item.poster_path != null) {
                 return (
-                    <div className="movie border" key={item.id}>
+                    <div className="movie" key={item.id}>
                     <div className="movie-poster">
                         <img
                         src={
@@ -56,8 +76,8 @@ class SimilarMovies extends Component {
                         />
                     </div>
                     <div className="movie-text">
-                        {/* <a href="/">{item.title}</a> */}
                         <Link to={`/movie/${item.id}`}>{item.title}</Link>
+                        <WatchlistToggle movie={{ id: item.id, title: item.title, poster_path: item.poster_path }} />
                     </div>
                     </div>
                 );

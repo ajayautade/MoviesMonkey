@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-label="Enjoy on your TV">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7c3aed"/>
+      <stop offset="1" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="none"/>
+
+  <!-- TV frame -->
+  <rect x="170" y="190" width="860" height="480" rx="32" fill="#0f0f16" stroke="rgba(255,255,255,0.14)"/>
+  <rect x="220" y="240" width="760" height="360" rx="18" fill="rgba(255,255,255,0.06)"/>
+
+  <!-- poster grid -->
+  <g opacity="0.85">
+    <rect x="260" y="270" width="160" height="140" rx="14" fill="rgba(124,58,237,0.14)"/>
+    <rect x="440" y="270" width="160" height="140" rx="14" fill="rgba(6,182,212,0.12)"/>
+    <rect x="620" y="270" width="160" height="140" rx="14" fill="rgba(255,255,255,0.08)"/>
+    <rect x="800" y="270" width="160" height="140" rx="14" fill="rgba(124,58,237,0.12)"/>
+
+    <rect x="260" y="430" width="160" height="140" rx="14" fill="rgba(255,255,255,0.07)"/>
+    <rect x="440" y="430" width="160" height="140" rx="14" fill="rgba(124,58,237,0.12)"/>
+    <rect x="620" y="430" width="160" height="140" rx="14" fill="rgba(6,182,212,0.10)"/>
+    <rect x="800" y="430" width="160" height="140" rx="14" fill="rgba(255,255,255,0.08)"/>
+  </g>
+
+  <!-- stand -->
+  <rect x="560" y="680" width="80" height="20" rx="10" fill="rgba(255,255,255,0.18)"/>
+  <rect x="470" y="700" width="260" height="26" rx="13" fill="#0f0f16" stroke="rgba(255,255,255,0.14)"/>
+
+  <!-- accent underline -->
+  <path d="M260 760h680" stroke="url(#g)" stroke-width="10" stroke-linecap="round" opacity="0.75"/>
+</svg>

@@ -1,101 +1,143 @@
 /* NAVIGATION BAR
 *****************************/
-.logo-icon{
-    width: 50px;
-    margin-right: 20px;
+.logo-icon {
+    width: 34px;
+    height: 34px;
+    margin-right: 12px;
     cursor: pointer;
+    display: inline-block;
 }
-.logo{
+
+.logo {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.Navbar{
+
+.Navbar {
     position: fixed;
     width: 100%;
-    z-index: 2;
-    padding: 25px 0;
-    transition: all 0.3s ease;
-    /* background: rgb(0,0,0);
-    background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(130,6,6,1) 50%, rgba(0,0,0,1) 100%); */
+    z-index: 20;
+    padding: 18px 0;
+    transition: background 0.2s ease, padding 0.2s ease;
+    background: rgba(11, 11, 15, 0.55);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
-.sticky{
-    background: #e50914;
-    padding: 15px 0 15px 0;
-    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.1);
+
+.sticky {
+    background: rgba(11, 11, 15, 0.82);
+    padding: 12px 0;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
-.Navbar .content{
+
+.Navbar .content {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.Navbar .logo a{
+
+.Navbar .logo a {
     font-size: 30px;
     font-weight: 600;
     text-decoration: none;
+    display: inline-flex;
+    align-items: center;
 }
-.Navbar .menu-list{
+
+.Navbar .menu-list {
     display: inline-flex;
 }
-.menu-list li{
+
+.menu-list li {
     list-style: none;
 }
-.menu-list li a{
-    font-size: 18px;
-    font-weight: 500;
-    margin-left: 25px;
+
+.menu-list li a {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-left: 18px;
     text-decoration: none;
-    transition: all 0.3s ease;
-    padding-left: 10px;
+    transition: color 0.15s ease, opacity 0.15s ease;
+    padding-left: 0;
+    opacity: 0.88;
 }
-.menu-list li a:hover{
-    color: turquoise;
-    border-left: 5px solid #e50914;
+
+.menu-list li a:hover {
+    color: rgba(255, 255, 255, 1);
+    opacity: 1;
 }
-.icon{
+
+.icon {
     font-size: 20px;
     cursor: pointer;
     display: none;
 }
-.menu-list .cancel-btn{
+
+.menu-list .cancel-btn {
     position: absolute;
     right: 30px;
     top: 20px;
 }
- /**********************************************************************************
+
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: var(--text);
+    margin-left: 20px;
+    padding: 8px;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    color: var(--accent);
+}
+
+/**********************************************************************************
  *********************** MEDIA  QUERIES *******************************************/
-  
- @media (max-width: 1230px) {
-    .content{
-      padding: 0 60px;
+
+@media (max-width: 1230px) {
+    .content {
+        padding: 0 60px;
     }
 }
+
 @media (max-width: 1100px) {
-    .content{
-      padding: 0 40px;
+    .content {
+        padding: 0 40px;
     }
 }
+
 @media (max-width: 900px) {
-    .content{
-    padding: 0 30px;
+    .content {
+        padding: 0 30px;
     }
 }
+
 @media (max-width: 868px) {
-    .main-title{
+    .main-title {
         background-position: inherit;
         background-size: auto;
     }
+
     /******************** NAVIGATION BAR ******************/
-    body.disabled{
+    body.disabled {
         overflow: hidden;
     }
-    .icon{
+
+    .icon {
         display: block;
     }
-    .icon.hide{
+
+    .icon.hide {
         display: none;
     }
-    .Navbar .menu-list{
+
+    .Navbar .menu-list {
         position: fixed;
         height: 100vh;
         width: 100%;
@@ -109,24 +151,30 @@
         background-color: #1b1b1f;
         transition: all 0.3s ease;
     }
-    .Navbar.show .menu-list{
+
+    .Navbar.show .menu-list {
         left: 0%;
     }
-    .Navbar .menu-list li{
+
+    .Navbar .menu-list li {
         margin-top: 45px;
     }
-    .Navbar .menu-list li a{
+
+    .Navbar .menu-list li a {
         font-size: 23px;
         margin-left: -100%;
         transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     }
-    .Navbar.show .menu-list li a{
+
+    .Navbar.show .menu-list li a {
         margin-left: 0px;
     }
 }
+
 @media (max-width: 380px) {
-     /******************** NAVIGATION BAR ******************/
-    .Navbar .logo a{
+
+    /******************** NAVIGATION BAR ******************/
+    .Navbar .logo a {
         font-size: 27px;
     }
 }

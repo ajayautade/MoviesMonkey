@@ -1,0 +1,29 @@
+.watchlist-empty{
+  margin-top: 16px;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.watchlist-empty p{
+  color: rgba(255,255,255,0.70);
+}
+
+.watchlist-btn{
+  margin-top: 10px;
+  width: 100%;
+  cursor: pointer;
+  padding: 10px 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.06);
+  border-radius: 12px;
+  color: rgba(255,255,255,0.86);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.watchlist-btn:hover{
+  background: rgba(255,255,255,0.08);
+}

@@ -1,67 +1,32 @@
 .spin-container {
     text-align: center;
-     margin: 100px auto 0 auto;
+    margin: 40px auto;
 }
+
+/* Minimal single-ring spinner */
 .spin{
-    border: 3px solid #0D4B9F;
-    width: 200px;
-    height: 200px;
+    width: 44px;
+    height: 44px;
     margin: 0 auto;
     border-radius: 50%;
-    border-left-color: transparent;
-    border-right-color: transparent;
-    animation: rotate 2s cubic-bezier(0.26, 1.36, 0.74, -0.29) infinite;
+    border: 3px solid rgba(255,255,255,0.18);
+    border-top-color: rgba(124,58,237,0.95);
+    animation: rotate 0.9s linear infinite;
 }
-#loader2{
-    border: 3px solid #E0EDFF;
-    width: 220px;
-    height: 220px;
-    position: relative;
-    top: -216px;
-    border-left-color: transparent;
-    border-right-color: transparent;
-    animation: rotate2 2s cubic-bezier(0.26, 1.36, 0.74, -0.29) infinite;
+
+/* keep legacy ids harmless if still rendered */
+#loader2,
+#loader3,
+#loader4,
+#text{
+    display: none;
 }
-#loader3{
-    border: 3px solid #005CDC;
-    width: 240px;
-    height: 240px;
-    position: relative;
-    top: -452px;
-    border-left-color: transparent;
-    border-right-color: transparent;
-    animation: rotate 2s cubic-bezier(0.26, 1.36, 0.74, -0.29) infinite;
-}
-#loader4{
-    border: 3px solid #94B6E5;
-    width: 260px;
-    height: 260px;
-    position: relative;
-    top: -708px;
-    border-left-color: transparent;
-    border-right-color: transparent;
-    animation: rotate2 2s cubic-bezier(0.26, 1.36, 0.74, -0.29) infinite;
-}
+
 @keyframes rotate {
     0% {
-      transform: rotateZ(-360deg)
+      transform: rotate(0deg)
     }
     100% {
-      transform: rotateZ(0deg)
+      transform: rotate(360deg)
     }
-}
-@keyframes rotate2 {
-    0% {
-      transform: rotateZ(360deg)
-    }
-    100% {
-      transform: rotateZ(0deg)
-    }
-}
-#text {
-    color: #D6E3F6;
-    font-family: Arial;
-    font-size: 15px;
-    position: relative;
-    top: -857px;
 }

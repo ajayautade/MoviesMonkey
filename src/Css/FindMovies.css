@@ -1,34 +1,74 @@
-.find-movies{
+.find-movies {
     margin: 50px 0;
 }
-.search{
-    padding: 10px 20px;
+
+.search {
+    padding: 10px 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 18px;
 }
-.search-container-input{
-    font-size: 20px;
-    border: none;
-    padding: 10px 20px;
-    transition: 0.5s;
-    cursor: auto;
-    width: 70%;
-    color: black;
-    /* margin-right: 30px; */
+
+.search-container {
+    width: 100%;
 }
-.search-container-input:focus{
-    background-color: grey;
-    color: white;
+
+.search-container form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.genre-filter {
+    width: 100%;
+}
+
+.genre-select {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background-color: rgba(16, 16, 24, 0.6);
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 14px;
     outline: none;
+    cursor: pointer;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
-.s-btn i{
-    color: black;
+
+.genre-select:focus {
+    border-color: rgba(124, 58, 237, 0.65);
+    box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.18);
 }
+
+.search-container-input {
+    font-size: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 12px 14px;
+    cursor: text;
+    width: 100%;
+    color: rgba(255, 255, 255, 0.92);
+    background: rgba(16, 16, 24, 0.6);
+    border-radius: 12px;
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.search-container-input:focus {
+    border-color: rgba(124, 58, 237, 0.65);
+    box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.18);
+}
+
+.s-btn i {
+    color: rgba(255, 255, 255, 0.92);
+}
+
 .s-btn {
     cursor: pointer;
-    padding: 13px;
-    border: none;
-    background-color: red;
+    padding: 12px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.95), rgba(6, 182, 212, 0.95));
+    border-radius: 12px;
 }

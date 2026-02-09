@@ -1,0 +1,27 @@
+.not-found {
+  padding: 60px 0;
+}
+
+.not-found .container {
+  padding: 30px;
+}
+
+.not-found-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-outline {
+  display: inline-block;
+  padding: 12px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.btn-outline:hover {
+  border-color: #ffffff;
+}

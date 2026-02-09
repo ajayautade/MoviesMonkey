@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import '../Css/MovieDetail.css'
 import Spinner from './Spinner';
+import SimilarMovies from './SimilarMovies';
+import WatchlistToggle from './WatchlistToggle';
 class MovieDetail extends Component {
     _isMounted = false;
     constructor(props) {
@@ -49,22 +51,41 @@ class MovieDetail extends Component {
         this.setState({
             loading: true
         })
-        axios.get(this.state.Tmdbendpoint + match.params.id + this.state.TmdbApiKey)
-        .then(res => {
-            const data = res.data;
-            this.setState({
-                imdbID: data.imdb_id
-            },()=>{
-               axios.get(this.state.OmdbendPoint + this.state.imdbID + this.state.OmdbApiKey)
-               .then(res =>{
-                   const movies = res.data;
-                   this.setState({
-                       movieInfo: movies,
-                       loading: false
-                   })
-               }) 
+        axios
+            .get(this.state.Tmdbendpoint + match.params.id + this.state.TmdbApiKey)
+            .then((res) => {
+                const data = res.data;
+                this.setState(
+                    {
+                        imdbID: data.imdb_id,
+                    },
+                    () => {
+                        axios
+                            .get(this.state.OmdbendPoint + this.state.imdbID + this.state.OmdbApiKey)
+                            .then((res) => {
+                                const movies = res.data;
+                                this.setState({
+                                    movieInfo: movies,
+                                    loading: false,
+                                });
+                            })
+                            .catch((error) => {
+                                console.log(error);
+                                this.setState({
+                                    movieInfo: {},
+                                    loading: false,
+                                });
+                            });
+                    }
+                );
             })
-        })
+            .catch((error) => {
+                console.log(error);
+                this.setState({
+                    movieInfo: {},
+                    loading: false,
+                });
+            });
     }
     componentWillUnmount() {
         this._isMounted = false;
@@ -92,9 +113,12 @@ class MovieDetail extends Component {
                                     <div className="left-content">
                                         <img src={movieInfo.Poster} alt={movieInfo.Title} />
                                     </div>
-                                    <div className="right-content">
+                                        <div className="right-content">
                                         <div className="right-top-section">
                                             <h3>{movieInfo.Title}</h3>
+                                            <div style={{maxWidth: "220px", marginTop: "10px"}}>
+                                                <WatchlistToggle movie={{ id: this.props.match.params.id, title: movieInfo.Title, poster_path: null }} />
+                                            </div>
                                             <span className="imdb-rating" style={{color:"white"}}>IMDB : <i className="fas fa-star" style={{color:"#f5c518",margin:"0 5px"}}></i>{movieInfo.imdbRating}</span>
                                             <h4>Overview : &nbsp; <span className="movie-info-item">{movieInfo.Plot}</span></h4>
                                         </div>
@@ -118,6 +142,9 @@ class MovieDetail extends Component {
                             }
                         </div>
                     </div>
+
+                    {/* Similar movies based on the current movie */}
+                    <SimilarMovies movieId={this.props.match.params.id} />
                 </section>
             </>
             )

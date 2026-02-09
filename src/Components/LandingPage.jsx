@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import '../Css/App.css'
 import '../Css/LandingPage.css'
-import MoneyHeist from '../Images/MoneyHeist.png'
-import Marvel from '../Images/MarvelTv.png'
+import WatchAnywhere from '../Images/watch-anywhere.svg'
+import EnjoyTv from '../Images/enjoy-tv.svg'
 import SectionWithImage from './SectionWithImage'
 import { Link } from 'react-router-dom'
 import Trending from './Trending'
@@ -42,7 +42,7 @@ class LandingPage extends Component {
                         <SectionWithImage 
                          h2="Enjoy on your TV."
                          h3="Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more."
-                         img1={Marvel}
+                         img1={EnjoyTv}
                          order="2"
                         />
                     </section>
@@ -50,7 +50,7 @@ class LandingPage extends Component {
                         <SectionWithImage 
                          h2="Watch everywhere."
                          h3="Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV."
-                         img1={MoneyHeist}
+                         img1={WatchAnywhere}
                          order={"-1"}
                         />
                     </section>

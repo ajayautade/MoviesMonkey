@@ -1,32 +1,14 @@
-/* ********** SECTION WITH IMAGE ********************************/
-.section-with-image{
-    background-color: black;
-    border-top: 3px solid grey;
-}
-.section-with-image-content{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px 0;
-}
-.text-section{
-    width: 200%;
-    margin: 0 40px 0 0;
-}
-.text-section h2{
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-.text-section h3{
-    font-weight: 400;
-}
+/* SectionWithImage styles kept minimal; most layout is in App.css */
 .img-section {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .img-section img{
-    width: 55%;
+    width: min(520px, 90%);
+    height: auto;
+    filter: drop-shadow(0 18px 40px rgba(0,0,0,0.55));
 }
  /**********************************************************************************
  *********************** MEDIA  QUERIES *******************************************/
@@ -37,14 +19,15 @@
     }
 }
 @media (max-width: 1100px) {
-    .content{
-      padding: 0 40px;
-    }
     .section-with-image-content{
         flex-direction: column;
     }
     .text-section{
-        width: 80%;
+        width: 100%;
+        text-align: center;
+    }
+    .img-section{
+        width: 100%;
     }
 }
 @media (max-width: 900px) {
