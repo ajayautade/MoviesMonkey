@@ -61,7 +61,7 @@ class Navbar extends Component {
                             <div className="icon cancel-btn" onClick={this.menuCloseHandler}>
                                 <i className="fas fa-times"></i>
                             </div>
-                            <li><Link onClick={this.menuCloseHandler} to="/upcomingmovies">UpComing Movies</Link></li>
+                            <li><Link onClick={this.menuCloseHandler} to="/">UpComing Movies</Link></li>
                             <li><Link onClick={this.menuCloseHandler} to="/find">Find Movies</Link></li>
                             <li><Link onClick={this.menuCloseHandler} to="/latestmovies">Latest Movies</Link></li>
                             <li><Link onClick={this.menuCloseHandler} to="/watchlist">Watchlist</Link></li>

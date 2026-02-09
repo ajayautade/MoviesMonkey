@@ -19,27 +19,27 @@ import {
 export class App extends Component {
   render() {
     return (
-    <>
-    <Router>
-      <Navbar />
-      <Switch>
-        <Route path="/" exact component={LandingPage} />
-        <Route path="/find" exact component={FindMovies} />
-        <Route path="/latestmovies" exact component={LatestMovies} />
-        <Route path="/contact" exact component={Contact} />
-        <Route path="/upcomingmovies" exact component={UpcomingMovies} />
-        <Route path="/watchlist" exact component={Watchlist} />
-        <Route path="/movie/:id" component={MovieDetail} />
+      <>
+        <Router>
+          <Navbar />
+          <Switch>
+            <Route path="/" exact component={UpcomingMovies} />
+            <Route path="/find" exact component={FindMovies} />
+            <Route path="/latestmovies" exact component={LatestMovies} />
+            <Route path="/contact" exact component={Contact} />
+            <Route path="/upcomingmovies" exact component={UpcomingMovies} />
+            <Route path="/watchlist" exact component={Watchlist} />
+            <Route path="/movie/:id" component={MovieDetail} />
 
-        {/* Footer pages */}
-        <Route path="/faq" exact component={FAQ} />
+            {/* Footer pages */}
+            <Route path="/faq" exact component={FAQ} />
 
-        {/* 404 (keep last) */}
-        <Route component={NotFound} />
-      </Switch>
-      <Footer />
-    </Router>
-    </>
+            {/* 404 (keep last) */}
+            <Route component={NotFound} />
+          </Switch>
+          <Footer />
+        </Router>
+      </>
     )
   }
 }
