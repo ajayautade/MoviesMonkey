@@ -9,6 +9,7 @@ import LatestMovies from './Components/LatestMovies';
 import MovieDetail from './Components/MovieDetail';
 import FAQ from './Components/FAQ';
 import Watchlist from './Components/Watchlist';
+import TopRatedMovies from './Components/TopRatedMovies';
 import NotFound from './Components/NotFound';
 import {
   BrowserRouter as Router,
@@ -28,6 +29,7 @@ export class App extends Component {
             <Route path="/latestmovies" exact component={LatestMovies} />
             <Route path="/contact" exact component={Contact} />
             <Route path="/upcomingmovies" exact component={UpcomingMovies} />
+            <Route path="/toprated" exact component={TopRatedMovies} />
             <Route path="/watchlist" exact component={Watchlist} />
             <Route path="/movie/:id" component={MovieDetail} />
 

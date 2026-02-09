@@ -63,6 +63,7 @@ class Navbar extends Component {
                             </div>
                             <li><Link onClick={this.menuCloseHandler} to="/">UpComing Movies</Link></li>
                             <li><Link onClick={this.menuCloseHandler} to="/find">Find Movies</Link></li>
+                            <li><Link onClick={this.menuCloseHandler} to="/toprated">Top Rated</Link></li>
                             <li><Link onClick={this.menuCloseHandler} to="/latestmovies">Latest Movies</Link></li>
                             <li><Link onClick={this.menuCloseHandler} to="/watchlist">Watchlist</Link></li>
                             <li><Link onClick={this.menuCloseHandler} to="/contact">Contact</Link></li>
