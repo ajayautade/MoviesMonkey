@@ -34,10 +34,10 @@ Toggle between Light and Dark themes for a comfortable viewing experience in any
 
 ### Prerequisites
 
-*   Node.js (v14 or higher)
-*   npm (v6 or higher)
+*   Node.js (v14 or higher) and npm (v6 or higher) for local development
+*   [Docker](https://www.docker.com/products/docker-desktop/) (optional, for containerized deployment)
 
-### Installation
+### Installation (Local Development)
 
 1.  Clone the repository:
     ```bash
@@ -51,14 +51,34 @@ Toggle between Light and Dark themes for a comfortable viewing experience in any
     ```bash
     npm install
     ```
-4.  Create a `.env` file in the root directory and add your TMDB API Key:
-    ```env
-    REACT_APP_MOVIE_DB=your_api_key_here
-    ```
-5.  Start the development server:
+4.  Start the development server:
     ```bash
     npm start
     ```
+
+### Docker Usage
+
+This project includes a multi-stage Dockerfile for easy containerized deployment. All API keys are hardcoded for demonstration purposes in v2 images.
+
+To build and run locally:
+
+```bash
+docker build -t moviemonkey-local .
+docker run -d -p 80:80 --name moviemonkey-local moviemonkey-local
+```
+
+To pull and run the latest v2 image from Docker Hub:
+
+```bash
+docker pull ajayautade/moviemonkey:v2
+docker run -d -p 80:80 --name moviemonkey-v2 ajayautade/moviemonkey:v2
+```
+
+Then visit http://localhost in your browser.
+
+---
+
+**Note:** For production, you should use environment variables for API keys instead of hardcoding them.
 
 ## Created By
 
