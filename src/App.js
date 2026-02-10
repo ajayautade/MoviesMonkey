@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import FindMovies from './Components/FindMovies';
-import LandingPage from './Components/LandingPage';
 import Navbar from './Components/Navbar';
 import Contact from './Components/Contact';
 import Footer from './Components/Footer';
