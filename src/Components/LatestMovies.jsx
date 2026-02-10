@@ -3,25 +3,25 @@ import axios from "axios";
 import '../Css/LatestMovies.css'
 import '../Css/App.css'
 import SimilarMovies from './SimilarMovies';
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 import Spinner from './Spinner';
 import WatchlistToggle from './WatchlistToggle';
 
 class LatestMovies extends Component {
     constructor(props) {
         super(props)
-    
+
         this.state = {
-             Movies: [],
-             loading: false,
-             page: 1,
-             canLoadMore: true,
-             baseUrl: `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_MOVIE_DB}&language=en-US&page=`
+            Movies: [],
+            loading: false,
+            page: 1,
+            canLoadMore: true,
+            baseUrl: `https://api.themoviedb.org/3/movie/popular?api_key=7c16ffd13e869cd11dcb5a4fe58da765&language=en-US&page=`
         };
 
         this.loadMore = this.loadMore.bind(this);
     }
-    fetchPage(page, mode){
+    fetchPage(page, mode) {
         this.setState({ loading: true });
 
         axios
@@ -46,20 +46,20 @@ class LatestMovies extends Component {
             });
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.fetchPage(1, 'replace');
     }
 
-    loadMore(){
-        if(this.state.loading || !this.state.canLoadMore){
+    loadMore() {
+        if (this.state.loading || !this.state.canLoadMore) {
             return;
         }
         this.fetchPage(this.state.page + 1, 'append');
-    }    
+    }
     render() {
-        const{Movies, loading, canLoadMore } = this.state;
+        const { Movies, loading, canLoadMore } = this.state;
         return (
-            <> 
+            <>
                 <div className="behind-nav"></div>
                 <section className="latest-movies">
                     <div className="content">
@@ -67,15 +67,14 @@ class LatestMovies extends Component {
                             <h2>Latest Movies</h2>
                         </div>
                         <div className="all-movies">
-                            { loading && Movies.length === 0 && <Spinner />}
+                            {loading && Movies.length === 0 && <Spinner />}
                             {
-                                Movies.map(item =>{
-                                    if(item.poster_path != null)
-                                    {
+                                Movies.map(item => {
+                                    if (item.poster_path != null) {
                                         return (
                                             <div className="movie" key={item.id}>
                                                 <div className="movie-poster">
-                                                    <img src={"https://image.tmdb.org/t/p/w200/" +item.poster_path} alt={item.title} />
+                                                    <img src={"https://image.tmdb.org/t/p/w200/" + item.poster_path} alt={item.title} />
                                                 </div>
                                                 <div className="movie-text">
                                                     <Link to={`/movie/${item.id}`}>{item.title}</Link>
@@ -84,7 +83,7 @@ class LatestMovies extends Component {
                                             </div>
                                         )
                                     }
-                                    else{
+                                    else {
                                         return null
                                     }
                                 })

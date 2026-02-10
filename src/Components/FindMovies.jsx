@@ -21,8 +21,8 @@ class FindMovies extends Component {
             canLoadMore: false,
             genres: [],
             selectedGenre: "",
-            baseUrl: `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIE_DB}&query=`,
-            discoverUrl: `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIE_DB}&include_adult=false&sort_by=popularity.desc&with_genres=`
+            baseUrl: `https://api.themoviedb.org/3/search/movie?api_key=7c16ffd13e869cd11dcb5a4fe58da765&query=`,
+            discoverUrl: `https://api.themoviedb.org/3/discover/movie?api_key=7c16ffd13e869cd11dcb5a4fe58da765&include_adult=false&sort_by=popularity.desc&with_genres=`
         }
 
         this.loadMore = this.loadMore.bind(this);
@@ -33,7 +33,7 @@ class FindMovies extends Component {
 
     componentDidMount() {
         // Fetch genre list
-        axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_MOVIE_DB}&language=en-US`)
+        axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=7c16ffd13e869cd11dcb5a4fe58da765&language=en-US`)
             .then(res => {
                 this.setState({ genres: res.data.genres || [] });
             })

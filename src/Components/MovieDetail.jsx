@@ -8,15 +8,15 @@ class MovieDetail extends Component {
     _isMounted = false;
     constructor(props) {
         super(props)
-        
-        this.state = {  
+
+        this.state = {
             loading: false,
             movieInfo: {},
             imdbID: "",
             Tmdbendpoint: "https://api.themoviedb.org/3/movie/",
-            TmdbApiKey: `/external_ids?api_key=${process.env.REACT_APP_MOVIE_DB}&language=en-US`,
+            TmdbApiKey: `/external_ids?api_key=7c16ffd13e869cd11dcb5a4fe58da765&language=en-US`,
             OmdbendPoint: "https://www.omdbapi.com/?i=",
-            OmdbApiKey: `&apikey=${process.env.REACT_APP_TMDB}`
+            OmdbApiKey: `&apikey=c33fcfa4`
         }
     }
     // inWords (number,decimals,recursiveCall) {
@@ -45,9 +45,9 @@ class MovieDetail extends Component {
     //     }
     //     return displayStr;
     // }
-    componentDidMount(){
+    componentDidMount() {
         this._isMounted = true;
-        const{match} = this.props;
+        const { match } = this.props;
         this.setState({
             loading: true
         })
@@ -98,7 +98,7 @@ class MovieDetail extends Component {
     //     return temp.slice(0,-2)+".";
     // }
     render() {
-        const{movieInfo, loading} = this.state;
+        const { movieInfo, loading } = this.state;
         return (
             <>
                 <div className="behind-nav"></div>
@@ -108,37 +108,37 @@ class MovieDetail extends Component {
                             <h2>Movie</h2>
                         </div>
                         <div className="details">
-                            { loading && <Spinner />}
-                                {!loading && <div className="movie-detail-content">
-                                    <div className="left-content">
-                                        <img src={movieInfo.Poster} alt={movieInfo.Title} />
-                                    </div>
-                                        <div className="right-content">
-                                        <div className="right-top-section">
-                                            <h3>{movieInfo.Title}</h3>
-                                            <div style={{maxWidth: "220px", marginTop: "10px"}}>
-                                                <WatchlistToggle movie={{ id: this.props.match.params.id, title: movieInfo.Title, poster_path: null }} />
-                                            </div>
-                                            <span className="imdb-rating" style={{color:"white"}}>IMDB : <i className="fas fa-star" style={{color:"#f5c518",margin:"0 5px"}}></i>{movieInfo.imdbRating}</span>
-                                            <h4>Overview : &nbsp; <span className="movie-info-item">{movieInfo.Plot}</span></h4>
+                            {loading && <Spinner />}
+                            {!loading && <div className="movie-detail-content">
+                                <div className="left-content">
+                                    <img src={movieInfo.Poster} alt={movieInfo.Title} />
+                                </div>
+                                <div className="right-content">
+                                    <div className="right-top-section">
+                                        <h3>{movieInfo.Title}</h3>
+                                        <div style={{ maxWidth: "220px", marginTop: "10px" }}>
+                                            <WatchlistToggle movie={{ id: this.props.match.params.id, title: movieInfo.Title, poster_path: null }} />
                                         </div>
-                                        <div className="right-bottom-section">
-                                            <div className="bottom-left">
-                                                <h4>Released: &nbsp; <span className="movie-info-item">{movieInfo.Released}.</span></h4>
-                                                <h4>Genre : <span className="movie-info-item">{movieInfo.Genre}.</span></h4>
-                                                <h4>Director : <span className="movie-info-item">{movieInfo.Director}.</span></h4>
-                                                <h4>Casts : <span className="movie-info-item">{movieInfo.Actors}.</span></h4>
-                                                <h4>BoxOffice : &nbsp; <span className="movie-info-item">{movieInfo.BoxOffice}.</span></h4>
-                                                <h4>Writers : &nbsp; <span className="movie-info-item">{movieInfo.Writer}.</span></h4>
-                                                <h4>Runtime : &nbsp; <span className="movie-info-item">{movieInfo.Runtime}.</span></h4>
-                                                <h4>Awards : &nbsp; <span className="movie-info-item">{movieInfo.Awards}.</span></h4>
-                                                <h4>Country : &nbsp; <span className="movie-info-item">{movieInfo.Country}.</span></h4>
-                                            </div>
-                                            <div className="bottom-right">
-                                            </div>
+                                        <span className="imdb-rating" style={{ color: "white" }}>IMDB : <i className="fas fa-star" style={{ color: "#f5c518", margin: "0 5px" }}></i>{movieInfo.imdbRating}</span>
+                                        <h4>Overview : &nbsp; <span className="movie-info-item">{movieInfo.Plot}</span></h4>
+                                    </div>
+                                    <div className="right-bottom-section">
+                                        <div className="bottom-left">
+                                            <h4>Released: &nbsp; <span className="movie-info-item">{movieInfo.Released}.</span></h4>
+                                            <h4>Genre : <span className="movie-info-item">{movieInfo.Genre}.</span></h4>
+                                            <h4>Director : <span className="movie-info-item">{movieInfo.Director}.</span></h4>
+                                            <h4>Casts : <span className="movie-info-item">{movieInfo.Actors}.</span></h4>
+                                            <h4>BoxOffice : &nbsp; <span className="movie-info-item">{movieInfo.BoxOffice}.</span></h4>
+                                            <h4>Writers : &nbsp; <span className="movie-info-item">{movieInfo.Writer}.</span></h4>
+                                            <h4>Runtime : &nbsp; <span className="movie-info-item">{movieInfo.Runtime}.</span></h4>
+                                            <h4>Awards : &nbsp; <span className="movie-info-item">{movieInfo.Awards}.</span></h4>
+                                            <h4>Country : &nbsp; <span className="movie-info-item">{movieInfo.Country}.</span></h4>
+                                        </div>
+                                        <div className="bottom-right">
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                             }
                         </div>
                     </div>
@@ -147,7 +147,7 @@ class MovieDetail extends Component {
                     <SimilarMovies movieId={this.props.match.params.id} />
                 </section>
             </>
-            )
+        )
     }
 }
 

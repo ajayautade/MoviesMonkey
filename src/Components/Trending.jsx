@@ -5,13 +5,13 @@ import WatchlistToggle from './WatchlistToggle';
 class Trending extends Component {
     constructor(props) {
         super(props)
-    
+
         this.state = {
-             Movies: [],
-             baseUrl: `https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.REACT_APP_MOVIE_DB}`
+            Movies: [],
+            baseUrl: `https://api.themoviedb.org/3/trending/movie/week?api_key=7c16ffd13e869cd11dcb5a4fe58da765`
         };
     }
-    componentDidMount(){
+    componentDidMount() {
         axios
             .get(this.state.baseUrl)
             .then((res) => {
@@ -26,9 +26,9 @@ class Trending extends Component {
                     Movies: [],
                 });
             });
-    }    
+    }
     render() {
-        const{Movies} = this.state;
+        const { Movies } = this.state;
         return (
             <>
                 <section className="latest-movies">
@@ -38,22 +38,21 @@ class Trending extends Component {
                         </div>
                         <div className="all-movies">
                             {
-                                Movies.map(item =>{
-                                    if(item.poster_path != null)
-                                    {
+                                Movies.map(item => {
+                                    if (item.poster_path != null) {
                                         return (
                                             <div className="movie" key={item.id}>
                                                 <div className="movie-poster">
-                                                    <img src={"https://image.tmdb.org/t/p/w200/" +item.poster_path} alt={item.title} />
+                                                    <img src={"https://image.tmdb.org/t/p/w200/" + item.poster_path} alt={item.title} />
                                                 </div>
-                                            <div className="movie-text">
-                                            <Link to={`/movie/${item.id}`}>{item.title}</Link>
-                                            <WatchlistToggle movie={{ id: item.id, title: item.title, poster_path: item.poster_path }} />
-                                            </div>
+                                                <div className="movie-text">
+                                                    <Link to={`/movie/${item.id}`}>{item.title}</Link>
+                                                    <WatchlistToggle movie={{ id: item.id, title: item.title, poster_path: item.poster_path }} />
+                                                </div>
                                             </div>
                                         )
                                     }
-                                    else{
+                                    else {
                                         return null
                                     }
                                 })

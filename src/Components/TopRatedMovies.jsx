@@ -16,7 +16,7 @@ class TopRatedMovies extends Component {
             loading: false,
             page: 1,
             canLoadMore: true,
-            baseUrl: `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_MOVIE_DB}&language=en-US&page=`
+            baseUrl: `https://api.themoviedb.org/3/movie/top_rated?api_key=7c16ffd13e869cd11dcb5a4fe58da765&language=en-US&page=`
         };
 
         this.loadMore = this.loadMore.bind(this);
